@@ -1,0 +1,4 @@
+--require rails_helper
+--require support/factories
+--require shared/batch_context
+--require shared/test_data_writer

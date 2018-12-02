@@ -1,0 +1,39 @@
+---
+project_before_2days:
+  fixtures:
+    project:
+      - project_nm: 'project1'
+        start_at: '2018-12-03 00:00:00+09'
+  expected: []
+
+project_not_scheduled:
+  fixtures:
+    project:
+      - project_nm: 'project1'
+        start_at: '2018-12-03 00:00:00+09'
+  expected:
+    - project_nm: 'project1'
+      status_cd: 'bad'
+
+milestone_not_completed:
+  fixtures:
+    project:
+      - project_nm: 'project1'
+        start_at: '2018-12-03 00:00:00+09'
+        release_at: '2019-01-03 00:00:00+09'
+        children:
+          milestone:
+            - milestone_nm: 'milestone1'
+              schedule_at: '2018-12-04 00:00:00+09'
+              completed_at: '2018-12-04 00:00:00+09'
+              children:
+                milestone_report:
+                  - report_at: '2018-12-04 00:00:00+09'
+                    status_cd: 'good'
+            - milestone_nm: 'milestone2'
+              schedule_at: '2018-12-05 00:00:00+09'
+  expected:
+    - milestone_nm: 'milestone1'
+      status_cd: 'good'
+    - milestone_nm: 'milestone2'
+      status_cd: 'bad'

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Milestone:</strong>
+  <%= @milestone_report.milestone_id %>
+</p>
+
+<p>
+  <strong>Report at:</strong>
+  <%= @milestone_report.report_at %>
+</p>
+
+<p>
+  <strong>Status cd:</strong>
+  <%= @milestone_report.status_cd %>
+</p>
+
+<%= link_to 'Edit', edit_milestone_report_path(@milestone_report) %> |
+<%= link_to 'Back', milestone_reports_path %>

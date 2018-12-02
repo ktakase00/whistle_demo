@@ -1,0 +1,9 @@
+---
+default: &default
+  version: 1.0.0
+
+development:
+  <<: *default
+
+test:
+  <<: *default
